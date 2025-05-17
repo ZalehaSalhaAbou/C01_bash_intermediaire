@@ -1,13 +1,9 @@
 #!/bin/bash
-# Script qui affiche chaque argument ligne par ligne
-
-if [ "$#" -eq 0 ]; then
-    echo "Aucun argument fourni. Utilisation : $0 arg1 arg2 ..."
-    exit 1
-fi
+# Affiche chaque argument passé en ligne de commande
 
 i=1
-for arg in "$@"; do
-    echo "Argument $i: $arg"
-    ((i++))
+for arg in "$@"
+do
+    echo "Argument $i : $arg"
+    i=$((i + 1))
 done
