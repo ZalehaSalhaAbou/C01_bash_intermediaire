@@ -1,18 +1,11 @@
 #!/bin/bash
-# Script pour rechercher une chaîne dans un fichier
+# Cherche une chaîne dans un fichier
 
-if [ $# -ne 2 ]; then
-    echo "Utilisation : $0 fichier chaîne"
-    exit 1
-fi
+echo "Entrez le nom du fichier :"
+read fichier
 
-fichier=$1
-chaine=$2
-
-if [ ! -f "$fichier" ]; then
-    echo "Erreur : le fichier '$fichier' n'existe pas."
-    exit 1
-fi
+echo "Entrez la chaîne à chercher :"
+read chaine
 
 if grep -q "$chaine" "$fichier"; then
     echo "La chaîne '$chaine' a été trouvée dans $fichier."
