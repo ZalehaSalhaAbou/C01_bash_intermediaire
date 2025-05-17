@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script pour compter les fichiers normaux dans un dossier
 
-echo "Entrez le nom du dossier : " read -p folder
+echo "Entrez le nom du dossier : " read folder
 
 if [ -d "$folder" ]; then
     count=$(find "$folder" -maxdepth 1 -type f | wc -l)
