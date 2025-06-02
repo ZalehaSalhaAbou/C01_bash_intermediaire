@@ -1,14 +1,20 @@
 #!/bin/bash
 # Cherche une chaîne dans un fichier
+if [ $# -ne 2 ]; then
+  echo "Usage : $0 <fichier> <chaine>"
+  exit 1
+fi
 
-echo "Entrez le nom du fichier :"
-read fichier
+FICHIER="$1"
+CHAINE="$2"
 
-echo "Entrez la chaîne à chercher :"
-read chaine
+if [ ! -f "$FICHIER" ]; then
+  echo "Erreur : Le fichier $FICHIER n'existe pas."
+  exit 2
+fi
 
-if grep -q "$chaine" "$fichier"; then
-    echo "La chaîne '$chaine' a été trouvée dans $fichier."
+if grep -q -- "$CHAINE" "$FICHIER"; then
+  echo "La chaîne '$CHAINE' a été trouvée dans $FICHIER."
 else
-    echo "La chaîne '$chaine' n'a pas été trouvée dans $fichier."
+  echo "La chaîne '$CHAINE' n'a pas été trouvée dans $FICHIER."
 fi
